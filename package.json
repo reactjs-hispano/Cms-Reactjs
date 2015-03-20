@@ -1,0 +1,34 @@
+{
+  "name": "CmsReactJS",
+  "description": "Cms para la comunidad de ReactJS Hispano",
+  "author": "Angel Calderaro calderaro94@gmail.com",
+  "dependencies": {
+    "express": "*",
+    "jade": "*",
+    "mongoose" : "*" ,
+    "serve-static": "*",
+    "body-Parser": "*",
+    "jwt-simple":"*",
+    "flux": "*",
+    "keymirror": "*",
+    "object-assign": "*",
+    "react": "*"
+  },
+  "devDependencies": {
+    "browserify": "*",
+    "envify": "*",
+    "reactify": "*",
+    "uglify-js": "*",
+    "watchify": "*"
+  },
+  "scripts": {
+    "start": "watchify public/js/app.js -o public/js/bundle.js -d -v",
+    "build": "NODE_ENV=production browserify . | uglifyjs -cm > public/js/bundle.min.js"
+  },
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+nav{
+	background: #0288D1;
+	width: 100vw;
+	height: 40px;
+	background: rgba(224, 31, 4, 0);
+	border-bottom: 1px solid rgba(0, 0, 0, 0);
+	display: flex;
+	flex-direction: row;
+	align-items:center;
+	justify-content: left;
+
+	color: #fff;
+}
+nav .logo{
+	margin-left: 100px;
+	position: fixed;
+  	background: url(../img/logo2.png) no-repeat ; 
+  	-webkit-background-size: 100%;
+  	-moz-background-size: 100%;
+  	-o-background-size: 100%;
+  	background-size: 100%;
+	width: 200px; 
+	height: 170px;
+}
+nav .nav-wrapper{
+	
+	font-family: "raleway",Arial;
+	font-size: 14px !important;
+	text-transform: uppercase;
+	margin-left: 80px;
+	width: 50vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: left;
+	-webkit-font-smoothing: antialiased;
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+/*
+
+ 
+  color: #FFFFFF;*/

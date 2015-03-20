@@ -1,0 +1,90 @@
+
+* {
+
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body{
+  background: #03A9F4;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+@font-face {
+font-family: alternate-gothic-no-2-d;
+src: url(../fonts/alternate-gothic-no2-d.ttf);
+font-family: ralewaybold;
+src: url(../fonts/ralewaybold.ttf);
+font-family: raleway;
+src: url(../fonts/raleway.ttf);
+}
+@font-face {
+font-family: alternate-gothic-no-2-d;
+src: url(../fonts/alternate-gothic-no2-d.ttf);
+}
+.page-wrapper section {
+  height: auto;
+  width: 100%;
+}
+.UsersSection{
+  font-family: "raleway",arial;
+}
+.UsersSectionMenu {
+  background: #F2F2F2;
+  height: 40px
+}
+.UsersSectionMenu input{
+  height: 40px;
+  padding: 0 20px 0 20px ;
+}
+.UsersFeed, .UsersNew, .UsersEdit{
+  border-bottom: solid 1px #F2F2F2;
+  background: #F2F2F2;
+  padding: 0;
+  margin: 0;
+}
+.UsersNew, .UsersEdit{
+  width: 100%;
+  height: 100vh;
+  overflow-x:hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.UsersNew form, .UsersEdit form{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.UsersNew form input, .UsersEdit form input{
+  border: solid 1px #BDBDBD;
+  margin-top: 10px;
+}
+.UsersSearch{
+  width: 100%;
+  border-top: solid 1px #E6E6E6;
+  border-bottom: solid 1px #E6E6E6;
+}
+.UsersSearch input{
+  width: 100%;
+  height: 2em;
+
+}
+.UserItemList{
+  border-top: solid 1px #E6E6E6;
+  padding: 10px;
+  font-family: "raleway",arial;
+}
+.UserItemList .body{
+  background: #E6E6E6;
+  padding: 20px;
+}
+
