@@ -2,6 +2,14 @@
   "name": "CmsReactJS",
   "description": "Cms para la comunidad de ReactJS Hispano",
   "author": "Angel Calderaro calderaro94@gmail.com",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reactjs-hispano/Cms-Reactjs"
+  },
+  "bugs": {
+    "url": "https://github.com/reactjs-hispano/Cms-Reactjs/issues"
+  },
   "dependencies": {
     "express": "*",
     "jade": "*",
@@ -30,5 +38,6 @@
       "reactify",
       "envify"
     ]
-  }
+  },
+  "license": "MIT"
 }
