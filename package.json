@@ -25,6 +25,9 @@
   "devDependencies": {
     "browserify": "*",
     "envify": "*",
+    "esprima-fb": "^13001.1001.0-dev-harmony-fb",
+    "jscs": "^1.11.3",
+    "jshint": "^2.6.3",
     "reactify": "*",
     "uglify-js": "*",
     "watchify": "*"
@@ -32,6 +35,8 @@
   "scripts": {
     "start": "watchify public/js/app.js -o public/js/bundle.js -d -v",
     "build": "NODE_ENV=production browserify . | uglifyjs -cm > public/js/bundle.min.js"
+    "check-hints": "jshint ./src ",
+    "check-code-style": "jscs ./src --max-errors 5 --verbose"
   },
   "browserify": {
     "transform": [
