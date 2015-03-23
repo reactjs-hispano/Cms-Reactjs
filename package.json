@@ -11,16 +11,17 @@
     "url": "https://github.com/reactjs-hispano/Cms-Reactjs/issues"
   },
   "dependencies": {
+    "body-parser": "*",
     "express": "*",
-    "jade": "*",
-    "mongoose" : "*" ,
-    "serve-static": "*",
-    "body-Parser": "*",
-    "jwt-simple":"*",
     "flux": "*",
+    "jade": "*",
+    "jwt-simple": "*",
     "keymirror": "*",
+    "mongoose": "*",
     "object-assign": "*",
-    "react": "*"
+    "react": "*",
+    "serve-static": "*",
+    "superagent": "^1.1.0"
   },
   "devDependencies": {
     "browserify": "*",
@@ -34,7 +35,7 @@
   },
   "scripts": {
     "start": "watchify public/js/app.js -o public/js/bundle.js -d -v",
-    "build": "NODE_ENV=production browserify . | uglifyjs -cm > public/js/bundle.min.js"
+    "build": "NODE_ENV=production browserify . | uglifyjs -cm > public/js/bundle.min.js",
     "check-hints": "jshint ./src ",
     "check-code-style": "jscs ./src --max-errors 5 --verbose"
   },
