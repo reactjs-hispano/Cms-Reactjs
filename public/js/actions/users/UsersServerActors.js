@@ -14,7 +14,7 @@ module.exports = {
   get: function() {
 
     request
-      .get(url+'list')
+      .get(url)
       .end(function(res){
 
         if(res.body.err){
@@ -27,33 +27,33 @@ module.exports = {
             });
           }
         }
-        
+
     });
   },
   create: function(item) {
     request
-    .post(url+'new')
+    .post(url)
     .query(item)
     .end(function(res){
-  
+
     if(res.body.err){
       console.log(res.body.err)
     }else{
       AppDispatcher.handleViewAction({
         type: ActionTypes.SAVE_USER,
         item: res.body[singular]
-      }); 
+      });
     }
-        
+
     });
-      
+
   }
   ,update: function(item){
     request
-    .post(url+'update')
+    .post(url)
     .query(item)
     .end(function(res){
-  
+
       if(res.body.err){
         console.log(res.body.err)
       }else{
@@ -62,7 +62,7 @@ module.exports = {
           item: item
         });
       }
-    
+
     })
   }
 ,search: function(by,data){
@@ -72,7 +72,7 @@ module.exports = {
     .get(url+'search/'+sby+"/"+data)
     //.query({sby: sby, data: data})
     .end(function(res){
-  
+
       if(res.body.err){
         console.log(res.body.err)
       }else{
@@ -82,7 +82,7 @@ module.exports = {
           rawItems: res.body[plural]
         });
       }
-    
+
     })
   }
 ,delete: function(itemID){
@@ -90,7 +90,7 @@ module.exports = {
     .post(url+'delete')
     .query({_id: itemID})
     .end(function(res){
-  
+
       if(res.body.err){
         console.log(res.body.err)
       }else{
@@ -99,7 +99,7 @@ module.exports = {
           _id: itemID
         });
       }
-    
+
     })
   }
 
