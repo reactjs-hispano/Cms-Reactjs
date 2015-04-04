@@ -1,12 +1,11 @@
 
-var path = require('path'),
-    util = require('util'),
-    serveStatic = require('serve-static'),
-    bodyParser = require('body-parser'),
-    // methodOverride = require('method-override')
-    express = require('express'),
-    app = express(),
-    router            = require("../src/lib/routes");
+var path    = require('path'),
+util        = require('util'),
+serveStatic = require('serve-static'),
+bodyParser  = require('body-parser'),
+express     = require('express'),
+app         = express(),
+router      = require("../src/lib/routes");
 
 app.engine('jade', require('jade').__express);
 

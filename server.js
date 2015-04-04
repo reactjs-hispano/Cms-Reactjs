@@ -1,6 +1,6 @@
-var http      = require("http"),
-  app       = require("./config/express"),
-  db        = require("./config/mongoose");
+var http = require("http"),
+app      = require("./config/express"),
+db       = require("./config/mongoose");
 
 /*
   @create server

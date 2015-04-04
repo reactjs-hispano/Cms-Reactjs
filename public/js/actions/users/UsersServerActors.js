@@ -12,23 +12,14 @@ var url ="/"+plural+"/";
 module.exports = {
 
   get: function() {
-
-    request
-      .get(url)
-      .end(function(res){
-
-        if(res.body.err){
-          console.log(res.body.err)
-        }else{
-          if(res.body[plural].length){//evita error al tratar de hacer init() sin users.
-            AppDispatcher.handleServerAction({
-              type: ActionTypes.RECEIVE_RAW_USERS,
-              rawItems: res.body[plural]
-            });
+        request.get(url).end(function(err, res){
+          if(!err && res.body[plural].length){
+              AppDispatcher.handleServerAction({
+                type: ActionTypes.RECEIVE_RAW_USERS,
+                rawItems: res.body[plural]
+              });
           }
-        }
-
-    });
+        });
   },
   create: function(item) {
     request
@@ -47,8 +38,8 @@ module.exports = {
 
     });
 
-  }
-  ,update: function(item){
+  },
+  update: function(item){
     request
     .post(url)
     .query(item)
@@ -64,8 +55,8 @@ module.exports = {
       }
 
     })
-  }
-,search: function(by,data){
+  },
+  search: function(by,data){
 
     var sby = by;
     request
@@ -84,8 +75,8 @@ module.exports = {
       }
 
     })
-  }
-,delete: function(itemID){
+  },
+  delete: function(itemID){
     request
     .post(url+'delete')
     .query({_id: itemID})
