@@ -4,6 +4,8 @@ module.exports = {
   index: function(req, res) {
     UserModel.find({}).exec(function(err, items) {
       if (!err) {
+        res.set({'content-Type':'application/json'});
+        res.status(200);
         res.json({ err: false, users: items });
       } else {
         res.json({ err: err });

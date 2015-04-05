@@ -1,20 +1,12 @@
-var http = require('http'),
-    app = require('./config/express'),
-    db = require('./config/mongoose'),
-    usersCtrl = require('./src/controllers/usersCtrl'),
-    server = http.createServer(app);
+var http = require("http"),
+app      = require("./config/express"),
+db       = require("./config/mongoose");
 
-app.get('', function(req, res) {
-  res.render('index');
+/*
+  @create server
+*/
+var server  = http.createServer(app);
+server.listen(app.get('port'), function () {
+  console.log('Express server listening on port: \t'+app.get('port'));
 });
 
-app.get('/users/list', usersCtrl.index);
-// app.get('/users/search/:by/:data',usersCtrl.search);
-app.post('/users/new', usersCtrl.new);
-app.post('/users/delete', usersCtrl.delete);
-app.post('/users/update', usersCtrl.update);
-app.get('/users/search/:by/:data', usersCtrl.search);
-
-server.listen(3000, function() {
-  console.log('Express server listening on port 3000');
-});
