@@ -12,48 +12,39 @@ var url ="/"+plural+"/";
 module.exports = {
 
   get: function() {
-
-    request
-      .get(url+'list')
-      .end(function(res){
-
-        if(res.body.err){
-          console.log(res.body.err)
-        }else{
-          if(res.body[plural].length){//evita error al tratar de hacer init() sin users.
-            AppDispatcher.handleServerAction({
-              type: ActionTypes.RECEIVE_RAW_USERS,
-              rawItems: res.body[plural]
-            });
+        request.get(url).end(function(err, res){
+          if(!err && res.body[plural].length){
+              AppDispatcher.handleServerAction({
+                type: ActionTypes.RECEIVE_RAW_USERS,
+                rawItems: res.body[plural]
+              });
           }
-        }
-        
-    });
+        });
   },
   create: function(item) {
     request
-    .post(url+'new')
+    .post(url)
     .query(item)
     .end(function(res){
-  
+
     if(res.body.err){
       console.log(res.body.err)
     }else{
       AppDispatcher.handleViewAction({
         type: ActionTypes.SAVE_USER,
         item: res.body[singular]
-      }); 
+      });
     }
-        
+
     });
-      
-  }
-  ,update: function(item){
+
+  },
+  update: function(item){
     request
-    .post(url+'update')
+    .post(url)
     .query(item)
     .end(function(res){
-  
+
       if(res.body.err){
         console.log(res.body.err)
       }else{
@@ -62,17 +53,17 @@ module.exports = {
           item: item
         });
       }
-    
+
     })
-  }
-,search: function(by,data){
+  },
+  search: function(by,data){
 
     var sby = by;
     request
     .get(url+'search/'+sby+"/"+data)
     //.query({sby: sby, data: data})
     .end(function(res){
-  
+
       if(res.body.err){
         console.log(res.body.err)
       }else{
@@ -82,15 +73,15 @@ module.exports = {
           rawItems: res.body[plural]
         });
       }
-    
+
     })
-  }
-,delete: function(itemID){
+  },
+  delete: function(itemID){
     request
     .post(url+'delete')
     .query({_id: itemID})
     .end(function(res){
-  
+
       if(res.body.err){
         console.log(res.body.err)
       }else{
@@ -99,7 +90,7 @@ module.exports = {
           _id: itemID
         });
       }
-    
+
     })
   }
 
