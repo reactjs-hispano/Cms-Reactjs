@@ -34,7 +34,7 @@
     "watchify": "*"
   },
   "scripts": {
-    "start": "watchify public/js/app.js -o public/js/bundle.js -d -v",
+    "build-dev": "watchify public/js/app.js -o public/js/bundle.js -d -v",
     "build": "NODE_ENV=production browserify . | uglifyjs -cm > public/js/bundle.min.js",
     "check-hints": "jshint ./src ",
     "check-code-style": "jscs ./src --max-errors 5 --verbose"
