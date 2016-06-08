@@ -31,6 +31,7 @@ module.exports = {
   },
 
   delete: function(req, res) {
+    console.log(req.query._id)
     UserModel.remove({ _id: req.query._id }, function(err) {
       if (!err) {
         res.json({ err: false });

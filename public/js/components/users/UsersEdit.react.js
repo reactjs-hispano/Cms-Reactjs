@@ -6,13 +6,13 @@ module.exports =  React.createClass({
 		return {
 			username:"",
 			email: ""
-			
+
 		}
 	},
 	handleChange: function(event){
 		this.setState({
-			username: this.refs.username.getDOMNode().value,
-			email: this.refs.email.getDOMNode().value
+			username: this.refs.username.value.trim(),
+			email: this.refs.email.value.trim(),
 		});
 	},
 	handleSubmit: function(e){

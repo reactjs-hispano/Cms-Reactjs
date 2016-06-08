@@ -25,10 +25,14 @@ module.exports = {
     request
     .post(url)
     .query(item)
-    .end(function(res){
+    .end(function(err, res){
+
+    if(err) {
+      console.log(err);
+    }
 
     if(res.body.err){
-      console.log(res.body.err)
+      console.log(res.body.err);
     }else{
       AppDispatcher.handleViewAction({
         type: ActionTypes.SAVE_USER,
@@ -43,7 +47,7 @@ module.exports = {
     request
     .post(url)
     .query(item)
-    .end(function(res){
+    .end(function(err, res){
 
       if(res.body.err){
         console.log(res.body.err)
@@ -62,8 +66,10 @@ module.exports = {
     request
     .get(url+'search/'+sby+"/"+data)
     //.query({sby: sby, data: data})
-    .end(function(res){
-
+    .end(function(err, res){
+      if(err){
+        console.log(err)
+      }
       if(res.body.err){
         console.log(res.body.err)
       }else{
@@ -78,9 +84,12 @@ module.exports = {
   },
   delete: function(itemID){
     request
-    .post(url+'delete')
+    .del(url)
     .query({_id: itemID})
-    .end(function(res){
+    .end(function(err, res){
+      if(err) {
+        console.log(err);
+      }
 
       if(res.body.err){
         console.log(res.body.err)

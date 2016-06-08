@@ -10,8 +10,8 @@ module.exports =  React.createClass({
 	},
 	handleChange: function(event){
 		this.setState({
-			username: this.refs.username.getDOMNode().value,
-			email: this.refs.email.getDOMNode().value
+			username: this.refs.username.value.trim(),
+			email: this.refs.email.value.trim()
 		});
 	},
 	handleSubmit: function(e) {
@@ -23,9 +23,11 @@ module.exports =  React.createClass({
 	    return (
 	      <div className="UsersNew">
 	      		<form  onSubmit={this.handleSubmit}>
+							<label>Username:</label>
 		      		<input type="text" ref="username" value={this.state.username} onChange={this.handleChange} />
+							<label>Email:</label>
 		      		<input type="text" ref="email" value={this.state.email} onChange={this.handleChange} />
-		      		<input type="submit"/>
+		      		<input type="submit" value="Create"/>
 	      		</form>
 	      </div>
 	    );
